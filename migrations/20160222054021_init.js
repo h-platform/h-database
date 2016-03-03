@@ -1,5 +1,5 @@
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('region', function(table) {
+  return knex.schema.createTable('queue', function(table) {
     table.increments('id').primary();
     table.string('queue_name');
     table.string('queue_path').unique();
@@ -38,7 +38,6 @@ exports.up = function(knex, Promise) {
       table.integer('post_id').unsigned().references('post.id');
       table.text('body');
       table.integer('created_by').unsigned();
-      table.integer('updated_by').unsigned();
       table.timestamps();
     });
   });

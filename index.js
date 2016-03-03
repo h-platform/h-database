@@ -35,7 +35,7 @@ glob("./models/*.js", {}, function (er, files) {
         config.model = model_name;
       }
       if(!config.limit) {
-        config.model = global_config.get('seneca.limit');
+        config.limit = global_config.get('seneca.limit');
       }
     } catch (e) {
       l.info(" - Generated config for model", model_name);

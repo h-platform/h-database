@@ -25,6 +25,8 @@ you might want to install knex cli tools for migrations and seeding:
 
 Features:
 =========
+Adds these
+
 [ ] saveRecordController
   [ ] filter unwanted keys from the payload by refering to the schema
 

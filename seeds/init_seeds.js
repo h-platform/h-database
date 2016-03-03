@@ -12,6 +12,7 @@ exports.seed = function(knex, Promise) {
     knex('category').insert({category_name: 'inquery', category_path: '1.2'}),
 
     // Inserts seed entries
+    knex('status').del(), 
     knex('status').insert({status_name: 'open'}),
     knex('status').insert({status_name: 'closed'})
   );

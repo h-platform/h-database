@@ -4,6 +4,7 @@ var models = require('../models');
 
 module.exports = bookshelf.Model.extend({ 
   tableName: 'post',
+  
   initialize: function(attributes, options) {
     this.on('saving', this.beforeSave);
   },
@@ -15,12 +16,15 @@ module.exports = bookshelf.Model.extend({
   category: function() {
     return this.belongsTo(models.category);
   },
+
   queue: function() {
     return this.belongsTo(models.queue);
   },
+
   status: function() {
     return this.belongsTo(models.status);
   },
+
 }, {
   schema: [
     Fields.IntField('category_id', {required: true}),

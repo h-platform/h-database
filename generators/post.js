@@ -9,31 +9,24 @@ var knex = require('knex')(db_config);
 
 var count = 100;
 var records = [];
-var createdBy = u.getRandomInt(1,10);
 var record;
+
+var ipsums = [
+  'Lorem ipsum dolor sit amet, sea in dolorum expetendis necessitatibus, mea mazim docendi no. Laudem contentiones has cu. Id agam zril soluta has, cu cum dissentias sadipscing disputando. Sea laudem lucilius consulatu ea, habeo equidem explicari mel te.',
+  'Ut soluta nostrum eum, nostro facilis definitionem mei ex, id eos amet assum. Ullum volumus te mea. Dolorum eleifend id cum. Vel et duis democritum, vis autem summo constituam te, wisi integre has ea. Reque sensibus no has, vix ne tation doctus cetero. Usu facer omnium expetendis ne, veritus efficiendi eum ei, mea autem alienum ex.',
+  'Detracto placerat sed ei, eirmod consulatu ullamcorper cu duo. Vim quod idque commodo ea, in duo sint modus moderatius. Eu magna principes urbanitas has. Mea id adipisci accusamus. Ut his albucius splendide assentior.',
+  'Fugit zril maluisset mea id, partem noster deterruisset sea te, ius viris soleat principes te. Copiosae consequuntur mel cu, essent reformidans mea eu, probo falli prodesset per ad. Cu omnium platonem complectitur duo, ei nostro lucilius vituperatoribus mel, te usu lorem falli albucius. Ut mea accusam eloquentiam, vim saepe gubergren ne. His ferri omnium commodo in, volutpat democritum est eu.',
+  'Sumo inermis invenire mel id, cu nec moderatius voluptatibus. Cum eu hinc iracundia reprehendunt, veri nostrud no per. Adhuc ullum utroque an mel. No eum facilisis cotidieque. Vim inimicus iudicabit id, ea qui eius ornatus invenire. Te vis alii inciderint, dolore adversarium ex usu, vix ad veritus detracto.',
+];
 
 for(i = 0 ; i < count ; i++){
   record = { 
-    category_id: 1,
-    region_id: u.getRandomInt(4,7),
-    entity_type_id: 1,
-    title: 'قطعة أرض',
-    body: '',
-    price: u.getRandomInt(80000,3000000),
-    currency:  'جنيه',
+    category_id: u.getRandomInt(1,2),
+    queue_id: u.getRandomInt(1,3),
+    status_id: u.getRandomInt(1,2),
 
-    block_no: u.getRandomInt(20,120),
-    plot_no: u.getRandomInt(1,99),
-    plot_area: u.getRandomInt(200,800),
-    area_unit: 'م.م.',
-
-    agent_name: '',
-    agent_phone: '',
-
-    owner_name: '',
-    owner_phone: '',
-
-    notes: '',
+    title: 'Post Title No ' + i,
+    body: u.getRandomElement(ipsums),
 
     created_by: u.getRandomInt(1,5),
     updated_by: u.getRandomInt(1,5),
@@ -41,9 +34,7 @@ for(i = 0 ; i < count ; i++){
     flag: 0
   };
 
-  record.price_per_area_unit = record.price / record.plot_area;
   records.push(record);
-
 }
 
 knex.insert(records, 'id').into('post').then(function(insertedRecords) {
