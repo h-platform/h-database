@@ -3,7 +3,8 @@ var bookshelf = require('../bookshelf');
 var models = require('../models');
 
 module.exports = bookshelf.Model.extend({ 
-  tableName: 'post',
+  tableName: 'comment',
+  
   initialize: function(attributes, options) {
     this.on('saving', this.beforeSave);
   },
