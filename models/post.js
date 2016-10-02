@@ -38,5 +38,6 @@ module.exports = bookshelf.Model.extend({
     Fields.IntField('updated_by'),
 
     Fields.IntField('flag'),
-  ]
+  ],
+  fields: ['id', 'category_id', 'queue_id', 'status_id', 'title', 'body', 'created_by', 'updated_by', 'flag'],
 });

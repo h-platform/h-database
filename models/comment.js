@@ -16,6 +16,10 @@ module.exports = bookshelf.Model.extend({
   post: function() {
     return this.belongsTo(models.post);
   },
+
+  createdBy: function() {
+    return this.belongsTo(models.user, 'created_by');
+  },
 }, {
   schema: [
     Fields.IntField('post_id', {required: true}),

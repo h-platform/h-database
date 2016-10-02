@@ -43,3 +43,6 @@ seneca:
 ###
 logging:
   directory: "./logs"
+
+application:
+  pageSize: 25
