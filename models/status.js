@@ -7,5 +7,6 @@ module.exports = bookshelf.Model.extend({
   schema: [
     Fields.StringField('status_name'),
     Fields.StringField('status_path')
-  ]
+  ],
+  fields: ['id', 'status_name']
 });
