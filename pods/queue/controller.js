@@ -11,7 +11,7 @@ module.exports = [{
       qb.select(bookshelf.knex.raw("( \
         SELECT COUNT(post.id) \
         FROM post \
-        WHERE post.queue_id = queue.id \
+        WHERE post.queue_id = queue.id AND post.status_id <> 2  \
       ) as post_count"));
     })
     .fetch()

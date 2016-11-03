@@ -33,7 +33,7 @@ module.exports = new(winston.Logger)({
       colorize: true
     }),
     new(winston.transports.File)({
-      filename: path.resolve(config.get('logging.directory'), 'server.log'),
+      filename: path.resolve(config.get('logging.directory'), 'database.log'),
       level: 'debug',
       handleExceptions: true,
       json: true,

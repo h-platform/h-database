@@ -18,7 +18,7 @@ glob("./models/*.js", {}, function (er, files) {
     model_name = _.replace(model_name, "models","");
     model_name = _.replace(model_name, "Js", "");
     model_name = _.snakeCase(model_name);
-    l.info("Generating controllers for model:", model_name, "from", file);
+    l.info("Generating controllers for model:", model_name, " from:", file);
     
     //try loading configuration file
     var config;
@@ -26,9 +26,10 @@ glob("./models/*.js", {}, function (er, files) {
     
     try {
       config = require(config_path);
-      l.info(" - Loaded config file from", config_path);
+      l.info(" - Loaded config from", config_path);
+
       //check if model value exsists, if not set to default one
-      if(!config.model) {
+      if(!config.role) {
         config.role = global_config.get('seneca.role');
       }
       if(!config.model) {
@@ -38,7 +39,7 @@ glob("./models/*.js", {}, function (er, files) {
         config.limit = global_config.get('seneca.limit');
       }
     } catch (e) {
-      l.info(" - Generated config for model", model_name);
+      l.error(" - Generating auto config for model:", model_name);
       config = {
         role: global_config.get('seneca.role'),
         model: model_name,
@@ -49,7 +50,7 @@ glob("./models/*.js", {}, function (er, files) {
     var controllers = mainController(config);
     _.each(controllers, function(controller){
       seneca.add(controller.pattern, controller.action);
-      l.info(' - Injecting Seneca Pattern', controller.pattern, 'for model:', model_name);
+      l.info(' - Injecting Seneca action with pattern', controller.pattern, 'for model:', model_name);
     });
 
   });
