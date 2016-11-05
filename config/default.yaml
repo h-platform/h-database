@@ -35,7 +35,9 @@ knex:
 ###
 seneca:
   role: "database"
-  limit: 50;
+  limit: 50
+  models_path: "models"
+  pods_path: "pods"
 
 ###
 # Logging configuration for application. Only directory for logs

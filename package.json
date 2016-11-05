@@ -17,6 +17,7 @@
     "chai": "^3.5.0",
     "config": "^1.19.0",
     "glob": "^7.0.0",
+    "h-database-controllers": "https://github.com/h-platform/h-database-controllers.git",
     "js-yaml": "^3.5.3",
     "jsonapi-mapper": "^1.0.0-beta.2",
     "knex": "^0.10.0",
